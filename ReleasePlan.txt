@@ -1,0 +1,35 @@
+Release Plan
+TutorTube
+Team TutorTube: Haley Emerson [Product Owner], Evan Hobbs [Scrum Master], Lisa Durand, Vanessa Putnam, Aishni Parab 
+Release Name: Peppermint Mocha Release
+Release Number: 1
+Release Date: January 26, 2017
+
+High level goals:
+Create an innovative Q&A platform that supports video sharing
+For addressing questions that need an extra dimension in addition to using traditional text editors
+
+Sprint 1:
+As a user I want to login and create an account So that I can login…
+As a user I want to specify if I am a Professor/TA/Tutor or Student so that I can (later) add or enroll in a class 
+As a developer I want to make a user database to keep track of users 
+As a developer I want to create a login page and controller so users can login and submit a form to create account 
+
+Sprint 2:
+As an instructor I want to create a class so that I can monitor class activity
+As a student I want to add myself to a class so that I can monitor class activity
+As a developer I want to make a class database so that I can link users to classes and use the database in when creating the HTML page 
+
+Sprint 3:
+As a user I want to post questions in multimedia form So that I can have my class questions answered
+As a user I want to upload video or text responses So that I can help other students in my class understand the material
+As a developer I want to create a content database linked to users and their class So that when I create an HTML page, I can use content stored in the database 
+
+
+Product Backlog:
+(goals that did not make it to release plan)
+Live video streaming for conducting discussions and solving problem of scheduling a physical classroom session
+Quality control to avoid spamming
+Tagging in tutorials or text to speech so that users can easily find a specific point in the tutorial they are interested in
+
+
