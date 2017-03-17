@@ -1,0 +1,20 @@
+{{extend 'template.html'}}
+<html>
+
+<head>
+</head>
+
+<h3>Enter your class:</h3>
+
+<form action = "{{=URL('default', 'index')}}" method = "POST">
+    <fieldset>
+      <legend>Submit Class</legend>
+      Title: <input type="text" name="cltitle"><br>
+      <input type="submit" value="Submit">
+    </fieldset>
+</form>
+
+<a href="{{=URL('default', 'index')}}">Home</a>
+
+</html>
+
