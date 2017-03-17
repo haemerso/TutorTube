@@ -1,0 +1,49 @@
+{{extend 'template.html'}}
+<html>
+<head>
+<style> 
+    p.textarea {
+        width: 100%;
+        height: 150px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-size: 16px;
+        resize: True;
+}
+</style>
+    
+</head>
+
+    
+<h3>Enter your post:</h3>
+
+<form action="" enctype="multipart/form-data" method="post">
+	<input name="_formname" type="hidden" value="post_form">
+    </br>
+    </br>
+	Subject:
+    <input name="post_subj" type="text" value="">
+    </br>
+    </br>
+    Content: 
+    <input name="post_cont" type="text" style="height: 200px; width: 350px; resize: 'True';" value="">
+    </br>
+    </br>
+	Image:
+    <input class="upload" name="post_image" type="file">
+    </br>
+    </br>
+    Video:
+    <input class="upload" name="post_video" type="file">
+    </br>
+    </br>
+	<input type="submit" value="Submit">
+</form>
+
+
+<a href="{{=URL('default', 'classes', args = [classes_id])}}">Return to Class</a>
+
+</html>
