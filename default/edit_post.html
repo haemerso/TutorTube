@@ -1,0 +1,13 @@
+{{extend 'template.html'}}
+<html>
+<head>
+    <link href="{{=URL('static','css/superfish.css')}}" rel="stylesheet" type="text/css"/>
+</head>
+
+<h3>Edit your comment:</h3>
+
+{{=form}}
+    
+    <a class="btn-block" href="{{=URL('default', 'classes', args = [classes_id])}}">Back to Class</a>
+
+</html>
