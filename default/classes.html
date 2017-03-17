@@ -1,0 +1,72 @@
+{{left_sidebar_enable=True}}
+{{extend 'template.html'}}
+       
+    
+<head>
+    <link rel="stylesheet" href="{{=URL('static','css/superfish.css')}}" />
+</head>    
+    
+<style>
+    #bannerL{ position: relative;
+    float:right; }
+</style>
+    <div id="bannerL">
+    <div class="panel-body">
+         <h3 class="panel-title">
+            <a href="{{=URL('default', 'index')}}">Back to Home</a>
+            <a class="btn-block" href="{{=URL('default', 'create_post', args = [classes_id])}}"><p style="padding: 10px; color: white; background-color: #FF5992">
+        {{=T("+ New Post")}}
+            </p></a></h3></div>
+        </div>
+
+    <h1>Class Posts:</h1>
+
+    <div align="center"><g:hangout render="createhangout"
+              invites="{{=hangout_names}}"></g:hangout>
+    <link rel="canonical" href="http://www.example.com"/>
+        <script type="text/javascript" src="https://apis.google.com/js/platform.js"></script>
+
+    
+    {{for u,p in reversed(zip(users,posts)):}}
+        <div>
+        <br>
+            <a href="{{=URL('default','posts', args=[classes_id, p.id])}}">       
+
+                {{=p.post_subject}}
+            </a> 
+            
+            <h4>
+       <br>       {{=p.post_content}}
+            </h4>
+            {{if p.image:}}
+            <img src="{{=URL('default', 'download', args=p.image)}}" height="250" width="350" ></img>
+            {{pass}}
+            {{if p.video:}}
+            <video height="250" width="350" controls>
+                <source src="{{=URL('default', 'download', args=p.video)}}" type="video/mp4">
+            </video>
+            {{pass}}
+            <p style="color:#4CDEF5;">{{=db.auth_user[p.user_id].first_name}}
+            {{=db.auth_user[p.user_id].last_name}}<span style="margin-left: 5em;"> {{=p.created_on}}</span> 
+            {{if p.updated_on != p.created_on:}}
+            <span style="margin-left: 5em;">Updated on {{=p.updated_on}}</span></p>
+            {{pass}}
+          {{if p.user_id==auth.user_id:}}
+    <style>
+        #bannerL{ position: relative;
+        float:right; }
+    </style>
+
+    <div id="bannerL">
+        <a href="{{=URL('default', 'edit_post', args=[p.id])}}">
+            <i class="glyphicon glyphicon-edit"></i>
+        </a></div>
+                <div>
+            <a href="{{=URL('default', 'edit_post', args = [classes_id, p.id])}}">Edit</a>
+        </div>
+       </div>
+    {{pass}}
+ {{pass}}
+
+</html>
+
