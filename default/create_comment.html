@@ -1,0 +1,35 @@
+{{extend 'template.html'}}
+<html>
+<head>
+</head>
+
+    
+<h3>Enter your comment:</h3>
+
+<form action="" enctype="multipart/form-data" method="post">
+	<input name="_formname" type="hidden" value="com_form">
+    </br>
+    </br>
+	Subject:
+    <input name="com_subj" type="text" value="">
+    </br>
+    </br>
+    Content:
+    <input name="com_cont" type="text" style="height: 200px; width: 350px; resize: 'True';" value="">
+    </br>
+    </br>
+	Image:
+    <input class="upload" name="com_image" type="file">
+    </br>
+    </br>
+    Video:
+    <input class="upload" name="com_video" type="file">
+    </br>
+    </br>
+	<input type="submit" value="Submit">
+</form>
+
+<a href="{{=URL('default', 'posts', args = [classes_id,post_id])}}">Return to Post</a>
+
+</html>
+
