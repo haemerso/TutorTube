@@ -1,0 +1,91 @@
+{{left_sidebar_enable=True}}
+{{extend 'template.html'}}
+       
+    
+<head>
+    <link rel="stylesheet" href="{{=URL('static','css/superfish.css')}}" />
+</head>    
+    
+<style>
+    #bannerL{ position: relative;
+    float:right; }
+</style>
+    <div id="bannerL">
+    <div class="panel-body">
+         <h3 class="panel-title">
+            <a href="{{=URL('default', 'classes', args = [classes_id])}}">Back to Class</a>
+            <a class="btn-block" href="{{=URL('default', 'create_comment', args = [classes_id, post_id])}}"><p style="padding: 10px; color: white; background-color: #FF5992">
+        {{=T("+ New Comment")}}
+            </p></a></h3></div>
+        </div>
+    
+    <h1>Post:</h1>
+
+        <div>
+
+            <h4>       
+
+                {{=post.post_subject}}
+            </h4> 
+            
+            <h4>
+                {{=post.post_content}}
+            </h4>
+            {{if post.image:}}
+            <img src="{{=URL('default', 'download', args=post.image)}}" height="500" width="700" ></img>
+            {{pass}}
+            {{if post.video:}}
+            <video height="250" width="350" controls>
+                <source src="{{=URL('default', 'download', args=post.video)}}" type="video/mp4">
+            </video>
+            {{pass}}
+            <p style="color:#4CDEF5;">{{=db.auth_user[post.user_id].first_name}}
+            {{=db.auth_user[post.user_id].last_name}}<span style="margin-left: 5em;"> {{=post.created_on}}</span> 
+            {{if post.updated_on != post.created_on:}}
+            <span style="margin-left: 5em;">Updated on {{=post.updated_on}}</span></p>
+            {{pass}}
+    </div>
+
+
+    <h1>Comments:</h1>
+    
+    {{for u,c in reversed(zip(users,comments)):}}
+        <div>
+            <h3>
+                {{=c.comment_subject}}
+            </h3>
+            <h4>
+                {{=c.comment_content}}
+            </h4>
+            {{if c.image:}}
+            <img src="{{=URL('default', 'download', args=c.image)}}" height="500" width="700" ></img>
+            {{pass}}
+            {{if c.video:}}
+            <video height="250" width="350" controls>
+                <source src="{{=URL('default', 'download', args=c.video)}}" type="video/mp4">
+            </video>
+            {{pass}}
+            <p style="color:#4CDEF5;">{{=db.auth_user[c.user_id].first_name}}
+            {{=db.auth_user[c.user_id].last_name}}<span style="margin-left: 5em;"> {{=c.created_on}}</span> 
+            {{if c.updated_on != c.created_on:}}
+            <span style="margin-left: 5em;">Updated on {{=c.updated_on}}</span></p>
+            {{pass}}
+          {{if c.user_id==auth.user_id:}}
+    <style>
+        #bannerL{ position: relative;
+        float:right; }
+    </style>
+
+    <div id="bannerL">
+        <a href="{{=URL('default', 'edit_post', args=[c.id])}}">
+            <i class="glyphicon glyphicon-edit"></i>
+        </a></div>
+        <div>
+            <a href="{{=URL('default', 'edit_comment', args = [c.id, classes_id, post_id])}}">Edit</a>
+        </div>
+       </div>
+    {{pass}}
+ {{pass}}
+
+</html>
+
